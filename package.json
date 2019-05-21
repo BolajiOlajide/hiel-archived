@@ -14,5 +14,12 @@
     "firebase": "^6.0.2",
     "lazy-config": "^3.0.1",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "dev": "nodemon .",
+    "start": "node ."
   }
 }
