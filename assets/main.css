@@ -1,9 +1,28 @@
 html {
   font-family: 'Sanchez', serif;
+  line-height: 1.5;
+  font-size: calc(14px + 5.3125*(100vw - 801px)/1700);
 }
 
 body {
   background: #D5DDBC;
   width: 100vw;
   height: 100vh;
+  margin: 0;
+}
+
+.hiel-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid grey;
+  padding: 1rem;
+  border-width: 50%;
+}
+
+.hiel-nav a {
+  text-decoration: none;
+  color: #18161B;
+  margin: 0.5rem 1rem;
 }
