@@ -23,5 +23,9 @@ module.exports = {
     messageId: lazyGetEnvVar('FIREBASE_MESSAGE_ID'),
     projectId: lazyGetEnvVar('FIREBASE_PROJECT_ID'),
     appId: lazyGetEnvVar('FIREBASE_APP_ID')
+  },
+
+  slack: {
+    token: lazyGetEnvVar('SLACK_TOKEN')
   }
 };

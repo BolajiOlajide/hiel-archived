@@ -10,7 +10,7 @@ const {
   appId
 } = config.firebase;
 
-export const firebaseConfig = {
+exports.firebaseConfig = {
   apiKey,
   authDomain,
   databaseURL: databaseUrl,
