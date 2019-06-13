@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <!-- Partial Template which includes navigation -->
+  <% include partials/head.ejs %>
+<body>
+  <% include partials/nav.ejs %>
+  <main>
+    <h1>Andela Socials Standup!</h1>
+    <hr />
+    <h3>Add new member</h3>
+    <form onSubmit="">
+      <input type="text" name="slack-handle" class="hiel__input" />
+      <input type="submit" value="Add member" class="hiel__button" />
+    </form>
+    <h3>Current Standup Members</h3>
+    <span class="hiel__attendee">- Bolaji Olajide @<%=name%> ✅</span>
+  </main>
+</body>
+</html>

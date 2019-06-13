@@ -27,11 +27,12 @@ module.exports = {
 
   slack: {
     token: lazyGetEnvVar('SLACK_TOKEN'),
-    aSocialsChannelId: ''
+    aSocialsChannelId: '',
+    webhookUrl: 'https://hooks.slack.com/services/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'
   },
 
   cron: {
-    // definition: '0 0 * * 1-5', // every weekday
-    definition: '* * * * *' // every minute
+    definition: '0 0 * * 1-5', // every weekday
+    // definition: '* * * * *' // every minute
   }
 };

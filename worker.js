@@ -1,21 +1,23 @@
 const Logger = require('./logger');
-// const Cron = require('./cron');
+const Cron = require('./cron');
 
 
-exports.runStandup = () => {
+const runStandup = () => {
   Logger.info('Processing standup for the day!');
 
   try {
     Cron.postMorningMessage();
-    Cron.sendStandupNotifications();
+    // Cron.sendStandupNotifications();
     Logger.info('Done processing standup for the day...');
 
-    setTimeout(() => process.exit(0), 5000);
+    setTimeout(() => process.exit(0), 10000);
   } catch (error) {
-    Logger.error('Ann error occured', error.message);
+    Logger.error('An error occured', error.message);
     setTimeout(() => process.exit(0), 5000);
   }
 }
+
+exports.runStandup = runStandup;
 
 const action = process.argv[2];
 

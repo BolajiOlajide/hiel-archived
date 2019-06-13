@@ -1,28 +1,65 @@
+:root {
+  --primary-color: #D5DDBC;
+  --dark-color: #1b1b1b;
+  --light-color: #f8f8f8;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--dark-color);
+}
+
 html {
-  font-family: 'Sanchez', serif;
   line-height: 1.5;
-  font-size: calc(14px + 5.3125*(100vw - 801px)/1700);
+  font-size: calc(.85rem + 5.3125*(100vw - 801px)/1700);
 }
 
 body {
-  background: #D5DDBC;
   width: 100vw;
   height: 100vh;
   margin: 0;
+  display: flex;
+  background: var(--light-color);
+  font-family: 'Sanchez', serif;
 }
 
-.hiel-nav {
+.hiel__nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid grey;
   padding: 1rem;
-  border-width: 50%;
+  width: 20vw;
+  height: 100%;
+  background: var(--primary-color);
+  box-shadow: 5px 0px 15px 1px rgb(16, 16, 16, 0.4);
 }
 
-.hiel-nav a {
-  text-decoration: none;
-  color: #18161B;
-  margin: 0.5rem 1rem;
+.hiel__nav img {
+  margin: 2rem 0;
+}
+
+.hiel__nav a {
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+.hiel__button {
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  margin: 0 0.8rem;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.hiel__input {
+  width: 12rem;
+  padding: 0.5rem;
+  font-size: 1rem;
 }

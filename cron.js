@@ -1,30 +1,50 @@
 const { WebClient, LogLevel } = require('@slack/web-api');
+const axios = require('axios');
 const config = require('lazy-config');
 
-const { morningMessage } = require('./utils/message');
+const { morningMessage, standUpMessage } = require('./utils/message');
+const { database } = require('./firebase');
 
 
 // Read a token from the environment variables
-const { token } = config.slack;
+const { token, webhookUrl } = config.slack;
 
 // Initialize
-// const slackWebClient = new WebClient(token, {
-//   logLevel: LogLevel.DEBUG,
-// });
+const slackWebClient = new WebClient(token, {
+  logLevel: LogLevel.DEBUG,
+});
 
 const Cron = {
-  async sendStandupNotifications() {
-    // await slackWebClient.chat.postMessage({
-    //   channel: 'U2CQEHW3S',
-    //   text: 'Hello there!'
-    // });
+  sendMessage(memberInfo = {}) {
+    const text = standUpMessage(memberInfo.name);
+    const body = {
+      channel: memberInfo.slackId,
+      text,
+      as_user: true
+    }
+    return slackWebClient.chat.postMessage(body);
+  },
 
-    return "DONE!!!!!";
+  async sendStandupNotifications() {
+    const snapshot = await database.ref('members').once('value');
+    const membersList = Object.values(snapshot.val()).filter(member => (member.isActive === true));
+    const pendingPromises = []
+
+    for (let index = 0; index < membersList.length; index += 1) {
+      pendingPromises.push(this.sendMessage(membersList[index]));
+    }
+
+    await Promise.all(pendingPromises);
   },
 
   async postMorningMessage() {
-    // post message to the group
+    const data = JSON.stringify({ text: morningMessage });
+    const res = await axios.post(webhookUrl, data);
+    console.log(res.data);
+  },
 
+  saveDayMsg() {
+    return database.ref('messages').push({ messageId });
   }
 };
 
