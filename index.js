@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const config = require('lazy-config');
 const logger = require('./logger');
 
-const Ctrl = require('./controller');
+const Ctrl = require('./controllers');
 
 
 const app = express();
