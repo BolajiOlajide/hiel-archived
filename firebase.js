@@ -1,9 +1,9 @@
 const firebase = require('firebase');
 
-const { firebaseConfig } = require('./config');
+const config = require('./config');
 
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config.firebase);
 
 // Get a reference to the database service
 const database = firebase.database();

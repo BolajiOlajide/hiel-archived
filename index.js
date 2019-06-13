@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const config = require('lazy-config');
-const logger = require('winston');
+const logger = require('./logger');
 
 const Ctrl = require('./controller');
 

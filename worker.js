@@ -1,12 +1,13 @@
 const Logger = require('./logger');
-const Cron = require('./cron');
+// const Cron = require('./cron');
 
 
-function runStandup() {
+exports.runStandup = () => {
   Logger.info('Processing standup for the day!');
 
   try {
-    Cron.runStandup();
+    Cron.postMorningMessage();
+    Cron.sendStandupNotifications();
     Logger.info('Done processing standup for the day...');
 
     setTimeout(() => process.exit(0), 5000);
@@ -18,10 +19,12 @@ function runStandup() {
 
 const action = process.argv[2];
 
-switch (action) {
-  case 'runStandup': runStandup();
-    break;
+if (action) {
+  switch (action) {
+    case 'runStandup': runStandup();
+      break;
 
-  default:
-    Logger.error('Invalid scheduled action specified');
+    default:
+      Logger.error('Invalid scheduled action specified');
+  }
 }
