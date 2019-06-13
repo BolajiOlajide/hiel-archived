@@ -9,11 +9,28 @@
     <hr />
     <h3>Add new member</h3>
     <form onSubmit="">
-      <input type="text" name="slack-handle" class="hiel__input" />
+      <input type="text" name="slack-handle" class="hiel__input" placeholder="Enter the user handle or slack ID" />
       <input type="submit" value="Add member" class="hiel__button" />
     </form>
     <h3>Current Standup Members</h3>
-    <span class="hiel__attendee">- Bolaji Olajide @<%=name%> ✅</span>
+
+    <% if (members.length > 0) { %>
+      <% for(let index = 0; index < members.length; index++) {%>
+        <div class="hiel__attendee">
+          <span>
+            * <%= members[index].name %> @<%= members[index].displayName %>
+          </span>
+          <% if (members[index].isActive) { %>
+            <span>✅</span>
+          <% } else { %>
+            <span>❌</span>
+          <% } %>
+        </div>
+      <% } %>
+    <% } else { %>
+      <p class="error">No members found!</p>
+    <% } %>
   </main>
+  <% include partials/script.ejs %>
 </body>
 </html>

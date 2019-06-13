@@ -1,0 +1,23 @@
+<script>
+  Noty.overrideDefaults({
+    layout   : 'topRight',
+    theme    : 'mint',
+    closeWith: ['click', 'button'],
+    animation: {
+      open : 'animated fadeInRight',
+      close: 'animated fadeOutRight'
+    }
+  });
+
+  function displayPop(text = 'dfdfdf', type = 'success') {
+    new Noty({
+      type,
+      text,
+      timeout: 3500
+    }).show();
+  }
+
+  function searchUser() {
+    const userInput = document.getElementsByClassName('hiel__input')[0];
+  }
+</script>

@@ -1,10 +1,14 @@
+const { database } = require('../firebase');
+
 module.exports = {
   index(req, res) {
     return res.send('Working!');
   },
-  displayAdminPage(req, res) {
+  async displayAdminPage(req, res) {
+    const snapshot = await database.ref('members').once('value');
+    const response = snapshot.val() || {};
     const context = {
-      name: 'Bolaji'
+      members: Object.values(response)
     };
     return res.render('admin', context);
   }

@@ -2,6 +2,7 @@
   --primary-color: #D5DDBC;
   --dark-color: #1b1b1b;
   --light-color: #f8f8f8;
+  --danger-color: red;
 }
 
 * {
@@ -59,7 +60,16 @@ main {
 }
 
 .hiel__input {
-  width: 12rem;
+  width: 20rem;
   padding: 0.5rem;
   font-size: 1rem;
+}
+
+.hiel__attendee {
+  display: block;
+}
+
+.error {
+  font-size: 1.2rem;
+  color: var(--danger-color);
 }
