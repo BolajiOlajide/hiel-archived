@@ -27,7 +27,7 @@ module.exports = {
 
   slack: {
     token: lazyGetEnvVar('SLACK_TOKEN'),
-    aSocialsChannelId: '',
+    aSocialsChannelId: 'CKL4KHQMC',
     webhookUrl: 'https://hooks.slack.com/services/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'
   },
 

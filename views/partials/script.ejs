@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" type="text/javascript"></script>
 <script>
   Noty.overrideDefaults({
     layout   : 'topRight',
@@ -19,5 +20,10 @@
 
   function searchUser() {
     const userInput = document.getElementsByClassName('hiel__input')[0];
+  }
+
+  async function get() {
+    const res = await fetch('/');
+    return res.json();
   }
 </script>
