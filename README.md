@@ -9,3 +9,13 @@ Slack bot for coordinating standup.
 * ensure you add the proper variables to the `.env`
 * the firebase details can be gotten from `firebase`
 * you can start the project with the command `yarn dev`
+
+## SEEDING
+
+In the event you clear the DB, you can seed the database with the `populate.js` script
+
+Simply run the command
+
+```bash
+node populate.js
+```
